@@ -72,12 +72,12 @@ app.get('/', (req, res) => {
 	});
 });
 
-client.on('authenticated', (session) => {
-    sessionData = session;
-    console.log(JSON.stringify(session));
-	final_session = JSON.stringify(session);
-	fs.writeFile('session.json', final_session, 'utf8', function (){console.log("Json Created")});
-});
+//client.on('authenticated', (session) => {
+//    sessionData = session;
+//    console.log(JSON.stringify(session));
+//	final_session = JSON.stringify(session);
+//	fs.writeFile('session.json', final_session, 'utf8', function (){console.log("Json Created")});
+//});
 
 client.on("auth_failure", () => {
 	console.error(
