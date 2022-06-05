@@ -1,0 +1,58 @@
+{
+  "name": "News-Scrapper-Bot",
+  "description": "Scrap news from website, and send to whatsapp",
+  "repository": "https://github.com/fazil-vk/News-Scrapper-Bot",
+  "logo": "https://telegra.ph/file/65b8e02615d6a44c81159.jpg",
+  "keywords": [
+    "whatsbot",
+    "whatsapp-newsbot",
+    "whatsapp-bot",
+    "whatsapp"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome.git"
+    }
+  ],
+  "stack": "container",
+  "env": {
+     "SESSION": {
+      "description": "Session ID. Do not change this value. After building this app click Manage App and then click OpenApp, then you will get a QR code. Scan that with your WhatsApp web app and you will get a session ID. Copy that value here.",
+      "value": "",
+      "required": false
+    },
+    "LOG_GRP": {
+      "description": "log group/chat id",
+      "value": "",
+      "required": true
+    },
+    "WA_GRP": {
+      "description": "Your WhatsApp group link.",
+      "value": "",
+      "required": false
+    },
+    "WA_GRP_M": {
+      "description": "Your WhatsApp group link.",
+      "value": "",
+      "required": false
+    },
+    "WA_GRP_ID": {
+      "description": "your whatsapp group or chat id like '120353041772870155@g.us'. If there are multiple IDs, then seperate them using comma(,) eg: 9072@g.us,8564@c.us,5678@g.us",
+      "value": "",
+      "required": true
+    },
+    "M_WA_GRP_ID": {
+      "description": "your whatsapp group or chat id like '120353041772870155@g.us'. If there are multiple IDs, then seperate them using comma(,) eg: 9072@g.us,8564@c.us,5678@g.us",
+      "value": "",
+      "required": true
+    },
+    "APP_NAME": {
+      "description": "Here enter your app name correctly what you put above field",
+      "value": "",
+      "required": true
+    }
+  }
+}

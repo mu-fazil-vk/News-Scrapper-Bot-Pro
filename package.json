@@ -1,0 +1,37 @@
+{
+  "name": "news_scrapper_bot",
+  "version": "1.0.0",
+  "description": "Scrap news from website, and send to whatsapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fazil-vk/News-Scrapper-Bot.git"
+  },
+  "keywords": [
+    "news",
+    "scrap",
+    "bot"
+  ],
+  "author": "Fazil vk",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/fazil-vk/News-Scrapper-Bot/issues"
+  },
+  "homepage": "https://github.com/fazil-vk/News-Scrapper-Bot#readme",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "http": "^0.0.1-security",
+    "qr-image": "^3.2.0",
+    "qrcode": "^1.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.16.4"
+  }
+}
