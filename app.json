@@ -19,8 +19,8 @@
   ],
   "stack": "container",
   "env": {
-     "SESSION": {
-      "description": "Session ID. Do not change this value. After building this app click Manage App and then click OpenApp, then you will get a QR code. Scan that with your WhatsApp web app and you will get a session ID. Copy that value here.",
+     "MONGODB_URI": {
+      "description": "monodb",
       "value": "",
       "required": false
     },

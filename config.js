@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports = {
-	session: process.env.SESSION === undefined ? '' : process.env.SESSION,
+	mogodb_uri: process.env.MONGODB_URI === undefined ? '' : process.env.MONGODB_URI,
 	log_grp: process.env.LOG_GRP === undefined ? '' : process.env.LOG_GRP,
 	wa_grp: process.env.WA_GRP === undefined ? '' : process.env.WA_GRP,
 	wa_grp_m: process.env.WA_GRP_M === undefined ? '' : process.env.WA_GRP_M,

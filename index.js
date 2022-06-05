@@ -3,13 +3,16 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const qrcodeTerminal = require('qrcode-terminal');
 var ffmpeg = require('fluent-ffmpeg');
-const { Client, LegacySessionAuth } = require('whatsapp-web.js');
+const { Client, LegacySessionAuth, RemoteAuth } = require('whatsapp-web.js');
 const express = require('express')
 const app = express()
 const configs = require("./config");
 const { MessageMedia } = require('whatsapp-web.js');
 let qrcode = require('qrcode');
+const { MongoStore } = require('wwebjs-mongo');
+const mongoose = require('mongoose');
 
+//"whatsapp-web.js": "^1.16.4"
 
 var sessionData;
 
@@ -27,23 +30,33 @@ var ImgLink = '';
 var ImgLink_M = '';
 
 
-var client;
+//var client;
 
-if(configs.session != ''){
-	client = new Client({
-    	puppeteer: { headless: true, args: ['--no-sandbox'], },
-	authStrategy: new LegacySessionAuth({
-		session: JSON.parse(configs.session)
-	}),
-    	ffmpegPath: require('@ffmpeg-installer/ffmpeg').path
- });
-}else {
-	client = new Client({
-	    	puppeteer: { headless: true, args: ['--no-sandbox'], },
-		authStrategy: new LegacySessionAuth(),
-	    	ffmpegPath: require('@ffmpeg-installer/ffmpeg').path
-	 });
-}
+//if(configs.session != ''){
+//	client = new Client({
+//    	puppeteer: { headless: true, args: ['--no-sandbox'], },
+//	authStrategy: new LegacySessionAuth({
+//		session: JSON.parse(configs.session)
+//	}),
+//    	ffmpegPath: require('@ffmpeg-installer/ffmpeg').path
+// });
+//}else {
+//	client = new Client({
+//	    	puppeteer: { headless: true, args: ['--no-sandbox'], },
+//		authStrategy: new LegacySessionAuth(),
+//	    	ffmpegPath: require('@ffmpeg-installer/ffmpeg').path
+//	 });
+//}
+
+mongoose.connect(configs.mogodb_uri).then(() => {
+    const store = new MongoStore({ mongoose: mongoose });
+    const client = new Client({
+        authStrategy: new RemoteAuth({
+            store: store,
+            backupSyncMs: 300000
+        })
+    });
+
 
 var final_session;
 
@@ -83,7 +96,6 @@ client.on('ready', () => {
 
 client.initialize();
 
-
 client.on('message', async message => {
 	console.log(message.from);
 	await scrapNews('https://www.manoramaonline.com/');
@@ -117,6 +129,10 @@ client.on('message', async message => {
 		client.sendMessage(configs.log_grp, "No Mangalam News");
 	}
 });
+
+});
+
+
 
 
 
