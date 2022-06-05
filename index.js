@@ -115,6 +115,7 @@ client.on('message', async message => {
 		client.sendMessage(configs.log_grp, "No Manorama News");
 	}
 
+	
 	//Mangalam
 	if (Full_News_M != '') {
 		var finalImage = ImgLink_M;
