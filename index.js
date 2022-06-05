@@ -64,7 +64,7 @@ var final_session;
 app.get('/', (req, res) => {
 	console.log(`Click Open App or Go here: http://${configs.app_name}.herokuapp.com/  \nAnd scan QR code on your WhatsApp web\nIf you already done this, then ignore it.`)
 	client.on('qr', qrCode => {
-		qrcode.generate(qrCode, {small: true});
+		qrcodeTerminal.generate(qrCode, {small: true});
 		console.log(`Click Open App or Go here: http://${configs.app_name}.herokuapp.com/  \nAnd scan QR code on your WhatsApp web.\nIf you already done this, then ignore it.`)
 		var code = qr.image(qrCode, { type: 'svg' });
 	  	res.type('svg');
