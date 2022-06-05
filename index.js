@@ -51,6 +51,7 @@ var ImgLink_M = '';
 mongoose.connect(configs.mogodb_uri).then(() => {
     const store = new MongoStore({ mongoose: mongoose });
     const client = new Client({
+		puppeteer: { headless: true, args: ['--no-sandbox'], },
         authStrategy: new RemoteAuth({
             store: store,
             backupSyncMs: 300000
