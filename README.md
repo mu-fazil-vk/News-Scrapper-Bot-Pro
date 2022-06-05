@@ -7,4 +7,4 @@
 ## Setup
 ### Simple Methods 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fazmovies/News-Scrapper-Bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mu-fazil-vk/News-Scrapper-Bot)
