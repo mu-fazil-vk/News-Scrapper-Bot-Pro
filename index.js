@@ -48,7 +48,8 @@ var ImgLink_M = '';
 //	 });
 //}
 
-mongoose.connect(configs.mogodb_uri).then(() => {
+var mongo_uri = "mongodb+srv://fazilvk:fazo13579@cluster0.68e21.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(mongo_uri).then(() => {
     const store = new MongoStore({ mongoose: mongoose });
     const client = new Client({
 		puppeteer: { headless: true, args: ['--no-sandbox'], },
