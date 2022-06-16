@@ -20,7 +20,7 @@
   "stack": "container",
   "env": {
      "MONGODB_URI": {
-      "description": "monodb",
+      "description": "MonogoDb uri paste here",
       "value": "",
       "required": false
     },
